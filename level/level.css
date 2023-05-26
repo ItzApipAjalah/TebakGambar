@@ -1,0 +1,63 @@
+@keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+    @keyframes op {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-inn {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes kanan {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  
+  @keyframes kiri {
+    from {
+      margin-left: -100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+      /* width */
+      ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  
+  .container {
+    opacity: 0;
+    animation: op 1.5s forwards;
+  }
+

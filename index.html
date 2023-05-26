@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+	<head>
+		<meta charset="utf-8">
+        <title>Tebak Gambar</title>
+        <meta name="description" content="The description should optimally be between 150-160 characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="AMWP">
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/font-awesome.css" />
+		<link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet"/>
+        
+		<script src="sweetalert2/sweetalert2.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+		<link href="https://fonts.cdnfonts.com/css/magical-mystery" rel="stylesheet">
+		<link href="https://fonts.cdnfonts.com/css/easy-listening" rel="stylesheet">
+		<link href="https://fonts.cdnfonts.com/css/seven-deadly-sins" rel="stylesheet">
+		<style>
+			/* Style the link to look like a button */
+			/* Custom styles for SweetAlert2 */
+			    /* Custom font */
+				@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+    body .swal2-title, body .swal2-content, body .swal2-cancel, body .swal2-confirm {
+      font-family: 'Open Sans', sans-serif;
+	  font-size: smaller;
+    }
+	
+			.swal2-popup {
+			  font-size: 1.2rem;
+			}
+			.swal2-title {
+			  margin-top: 0;
+			  font-weight: bold;
+			  font-size: 1.5rem;
+			}
+			.swal2-content {
+			  font-size: 1.2rem;
+			  margin-bottom: 20px;
+			}
+			.swal2-cancel, .swal2-confirm {
+			  background-color: #b22222;
+			  color: #fff;
+			  border: none;
+			  border-radius: 5px;
+			  font-size: 1.2rem;
+			  padding: 10px 20px;
+			  cursor: pointer;
+			}
+			.swal2-cancel:hover, .swal2-confirm:hover {
+			  background-color: #0c7cd5;
+			}
+			.swal2-cancel:active, .swal2-confirm:active {
+			  background-color: #0a5fa5;
+			}
+		  </style>
+		
+
+
+        <!-- ================= Favicon ================== -->
+        <!-- Standard -->
+        <link rel="shortcut icon" href="img/favicon.png">
+        <!-- Retina iPad Touch Icon-->
+        <link rel="apple-touch-icon" sizes="144x144" href="img/favicon-retina-ipad.png">
+        <!-- Retina iPhone Touch Icon-->
+        <link rel="apple-touch-icon" sizes="114x114" href="img/favicon-retina-iphone.png">
+        <!-- Standard iPad Touch Icon--> 
+        <link rel="apple-touch-icon" sizes="72x72" href="img/favicon-standard-ipad.png">
+        <!-- Standard iPhone Touch Icon--> 
+        <link rel="apple-touch-icon" sizes="57x57" href="img/favicon-standard-iphone.png">
+
+        <!-- ============== Resources style ============== -->
+        <link rel="stylesheet" href="css/style.css" />
+
+		<!-- Modernizr runs quickly on page load to detect features -->
+		
+	</head>
+	
+	<body>
+		<!-- Page preloader -->
+		<div id="loading">
+			<div id="preloader">
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+
+		<!-- Overlay and Star effect -->
+		<div class="global-overlay">
+			<div class="overlay skew-part">
+
+				<div id='stars'></div>
+				<div id='stars2'></div>
+				<div id='stars3'></div>
+
+			</div>
+		</div>
+
+		<!-- START - Home/Left Part -->
+		<section id="left-side">
+
+			<!-- Your logo -->
+			<img src="img/logo.png" alt="" class="brand-logo" />
+
+			<div class="content">
+
+				<h1 class="text-intro opacity-0">TEBAK GAMBAR<br></h1>
+
+				<p class="text-intro opacity-0">Tebak gambar nya dan menangkan game nya</p>
+				<br>
+
+				<nav>
+					<ul>
+						<li>
+							<a id="helpButton" href="#" class="light-btn text-intro opacity-0 mainButton">BANTUAN</a>
+						</li>
+						<li>
+							<a onclick="window.location='level/selector.html';" class="action-btn trigger text-intro opacity-0 mainButton">BERMAIN</a>
+						</li>
+						<li>
+							<a onclick="window.location='about.html';" class="light-btn trigger text-intro opacity-0 mainButton">KELOMPOK</a>
+						</li>
+					</ul>
+				</nav>
+
+			</div>
+
+			<!-- Social icons -->
+			<div class="social-icons">
+
+
+
+			</div>
+
+		</section>
+		<!-- END - Home/Left Part -->
+
+			<footer>
+
+				<p style="color:white">Dibuat dengan &hearts; oleh AMWP</p>
+
+			</footer>
+
+		</section>
+
+	<!-- * Libraries jQuery, Easing and Bootstrap - Be careful to not remove them * -->
+	<script src="https://unpkg.com/sweetalert2@11.7.5/dist/sweetalert2.all.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+	<script>
+		var sound = new Howl({
+  			src: ['resources/sounds/Primavera.wav'],
+  			autoplay: true,
+  			loop: true,
+  			onplay: function() {
+  		  console.log('Audio started playing.');
+  }
+});
+sound.play();
+
+    // Attach a click event listener to the link with the id "helpButton"
+    document.getElementById('helpButton').addEventListener('click', function() {
+		swal.fire({
+    title: "Selamat Datang di tebak gambar",
+    text: "Game Ini memiliki total 20 level, kamu harus menjawab dengan benar",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Next",
+    cancelButtonText: "Cancel"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Code to execute when "Hint" button is clicked
+      swal.fire({
+        title: "Cara bermain",
+        text: "Dalam 1 soal memiliki beberapa gambar, seperti gambar seokarno dan hatta di gabungkan menjadi soekarno hatta.",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Next",
+        cancelButtonText: "Cancel"
+      }).then((result) => {
+    if (result.isConfirmed) {
+      // Code to execute when "Hint" button is clicked
+      swal.fire({
+        text: "Maaf Design yang tidak sebarapa, karena game ini hanya di buat oleh 1 orang, saya mengutamakan fungsi :).",
+        icon: "success",
+        button: "OK"
+      });
+    } else if (result.dismiss === swal.DismissReason.cancel) {
+      // Code to execute when "Menu" button is clicked
+      console.log("done"); //done
+    }
+  });
+    } else if (result.dismiss === swal.DismissReason.cancel) {
+      // Code to execute when "Menu" button is clicked
+      console.log("done"); //done
+    }
+  });
+});
+
+
+	  </script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easings.min.js"></script>
+	
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- PhotoSwipe Core JS file -->
+	<script src="js/velocity.min.js"></script> 
+
+	<!-- PhotoSwipe UI JS file -->
+	<script src="js/velocity.ui.min.js"></script> 
+
+	<!-- Slideshow/Image plugin -->
+	<script src="js/vegas.js"></script>
+	<!-- Main JS File -->
+	<script src="js/main.js"></script>
+	<script src="js/status.js"></script>
+	
+
+	</body>
+
+</html>

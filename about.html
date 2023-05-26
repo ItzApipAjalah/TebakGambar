@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Our Team</title>
+    <style>
+      * {
+    box-sizing: border-box;
+    
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-family: 'Easy listening', sans-serif;
+    margin: 0;
+  }
+  
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .team-member {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    max-width: 300px;
+    background-color: #444;
+    color: #fff;
+  }
+  
+  .team-member{
+    opacity: 0;
+    animation: fade-in 1.2s forwards;
+    animation-delay: 0.8s;
+  }
+
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: op 1s forwards;
+    animation-delay: 1.9s;
+  }
+  
+  .team-member h2 {
+    font-family: 'Easy listening', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    opacity: 0;
+    animation: op 1s forwards;
+    animation-delay: 1.9s;
+  }
+  
+  .team-member p {
+    font-family: 'Easy listening', sans-serif;
+    margin: 0;
+    opacity: 0;
+    animation: op 1s forwards;
+    animation-delay: 1.9s;
+    
+  }
+  
+  .contact-btn {
+    font-family: 'Easy listening', sans-serif;
+    margin-top: 10px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    opacity: 0;
+    animation: op 1s forwards;
+    animation-delay: 1.9s;
+  }
+  
+  .contact-btn:hover {
+    background-color: #555;
+  }
+  
+  .info-btn {
+    font-family: 'Easy listening', sans-serif;
+    margin-top: 10px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    opacity: 0;
+    animation: op 1s forwards;
+    animation-delay: 1.9s;
+  }
+  
+  .info-btn:hover {
+    background-color: #555;
+  }
+
+  @media (max-width: 600px) {
+    .team-member {
+      max-width: 100%;
+    }
+  }
+
+  
+.bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    animation: bg-animation .2s infinite;
+    opacity: .9;
+    visibility: visible;
+    z-index: -9000;
+  }
+  
+  header {
+    opacity: 0;
+  animation: fade-inn 1s forwards;
+}
+
+  @keyframes bg-animation {
+      0% { transform: translate(0,0) }
+      10% { transform: translate(-5%,-5%) }
+      20% { transform: translate(-10%,5%) }
+      30% { transform: translate(5%,-10%) }
+      40% { transform: translate(-5%,15%) }
+      50% { transform: translate(-10%,5%) }
+      60% { transform: translate(15%,0) }
+      70% { transform: translate(0,10%) }
+      80% { transform: translate(-15%,0) }
+      90% { transform: translate(10%,5%) }
+      100% { transform: translate(5%,0) }
+  }
+
+  @keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  @keyframes op {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-inn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kanan {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+@keyframes kiri {
+  from {
+    margin-left: -100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+    /* width */
+    ::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+
+@media screen and (max-width: 480px) {
+  ::-webkit-scrollbar {
+  width: 5px;
+}
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #F5F5DC; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 8px 16px #F9F6EE; 
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@11.7.5/dist/sweetalert2.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@11.7.5/dist/sweetalert2.all.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/magical-mystery" rel="stylesheet">
+		<link href="https://fonts.cdnfonts.com/css/easy-listening" rel="stylesheet">
+		<link href="https://fonts.cdnfonts.com/css/seven-deadly-sins" rel="stylesheet">
+  </head>
+  <body>  
+    <header>
+      <h1>KELOMPOK 1</h1>
+    </header>
+    <main>
+        <div class="bg"></div>
+      <section class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <h2>Afif Medya</h2>
+        <p>pembuat kode</p>
+        <button class="info-btn">INFO</button>
+      </section>
+      <section class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <h2>Annisa Aulia</h2>
+        <p>Pembuat Soal</p>
+        <button class="contact-btn btn1">Istagram</button>
+      </section>
+      <section class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <h2>Aiman</h2>
+        <p>Anggota</p>
+        <button class="contact-btn btn2">Istagram</button>
+      </section>
+      <section class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <h2>Adrian Baihaqi</h2>
+        <p>Anggota</p>
+        <button class="contact-btn btn3">Istagram</button>
+      </section>
+      <section class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <h2>Alan</h2>
+        <p>Anggota</p>
+        <button class="contact-btn btn4">Istagram</button>
+      </section>
+      <section class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <h2>Akmal</h2>
+        <p>Anggota</p>
+        <button class="contact-btn btn5">Istagram</button>
+      </section>
+    </main>
+    <script>
+      $(document).ready(function() {
+     $('.btn1').click(function() {
+      swal.fire({
+        title: "IG",
+        html: "IG: <a href='https://www.instagram.com/apip01____/'>@aninsa22</a>",
+        icon: "info",
+        button: "Close",
+      });
+    });
+  });
+  $('.info-btn').click(function() {
+    swal.fire({
+  title: "INFO",
+  html: "Contact : afifmedya@pplgone.xyz<br>IG : <a href='https://www.instagram.com/apip01____/'>@apip01____</a><br>Web : <a href='https://pplgone.xyz'>https://pplgone.xyz</a>",
+  icon: "info",
+  confirmButtonText: "Close"
+});
+
+    });
+    $('.btn2').click(function() {
+      swal.fire({
+        title: "IG",
+        html: "IG: ",
+        icon: "info",
+        button: "Close",
+      });
+    });
+    $('.btn3').click(function() {
+      swal.fire({
+        title: "IG",
+        html: "IG: ",
+        icon: "info",
+        button: "Close",
+      });
+    });
+    $('.btn4').click(function() {
+      swal.fire({
+        title: "IG",
+        html: "IG: ",
+        icon: "info",
+        button: "Close",
+      });
+    });
+    $('.btn5').click(function() {
+      swal.fire({
+        title: "IG",
+        html: "IG: ",
+        icon: "info",
+        button: "Close",
+      });
+    });
+    $('.btn6').click(function() {
+      swal.fire({
+        title: "IG",
+        html: "IG: ",
+        icon: "info",
+        button: "Close",
+      });
+    });
+  
+    </script>
+  </body>
+</html>

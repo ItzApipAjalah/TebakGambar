@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Choose a Level</title>
+  <link href="https://fonts.cdnfonts.com/css/magical-mystery" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/easy-listening" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/seven-deadly-sins" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f8f8;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      color: #333;
+    }
+
+    .levels {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a {
+  display: block;
+  margin: 15px auto;
+  padding: 20px;
+  padding-right: 90%;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 480px) {
+  a {
+    padding-right: 0;
+    font-size: 18px;
+    margin: 10px auto;
+    padding: 20px;
+    padding-right: 40%;
+  }
+}
+
+
+    a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    a.locked {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .lock-icon {
+      display: inline-block;
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: #ff9800;
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      line-height: 20px;
+      border-radius: 50%;
+    }
+
+    .lock-icon:before {
+      content: "\f023";
+      font-family: FontAwesome;
+      font-weight: normal;
+      font-style: normal;
+      text-decoration: inherit;
+      margin-left: -2px;
+    }
+
+    .levels {
+      animation-duration: 1s;
+  animation-name: kanan;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.choose {
+  opacity: 0;
+  animation: fade-inn 1s forwards;
+}
+
+@keyframes fade-inn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kanan {
+   from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+@keyframes kiri {
+  from {
+    margin-left: -100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+    </style>
+
+</head>
+
+
+<body>
+<h1 class="choose">Choose a Level</h1>
+
+<div class="levels">
+  <a href="level/level1.html">Level 1</a>
+  <a href="#" class="locked kiri" onclick="alert('Please complete Level 1 first!')">Level 2</a>
+  <a href="#" class="locked kanan" onclick="alert('Please complete Level 2 first!')">Level 3</a>
+  <a href="level/leve4.html" class="locked kiri" onclick="alert('Please complete Level 3 first!')">Level 4</a>
+  <a href="#" class="locked kanan" onclick="alert('Please complete Level 4 first!')">Level 5</a>
+  <a href="#" class="locked kiri" onclick="alert('Please complete Level 5 first!')">Level 6</a>
+  <a href="#" class="locked kanan" onclick="alert('Please complete Level 6 first!')">Level 7</a>
+  <a href="#" class="locked kiri" onclick="alert('Please complete Level 7 first!')">Level 8</a>
+  <a href="#" class="locked kanan" onclick="alert('Please complete Level 8 first!')">Level 9</a>
+  <a href="#" class="locked kiri" onclick="alert('Please complete Level 9 first!')">Level 10</a>
+  <a href="#" class="locked kanan" onclick="alert('Please complete Level 10 first!')">Level 11</a>
+  <a href="#" class="locked kiri" onclick="alert('Please complete Level 11 first!')">Level 12</a>
+  <a href="#" class="locked kanan" onclick="alert('Please complete Level 12 first!')">Level 13</a>
+  <a href="#" class="locked kiri" onclick="alert('Please complete Level 13 first!')">Level 14</a>
+  <a href="#" class="locked kanan" onclick="alert('Please complete Level 14 first!')">Level 15</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+      // Get the .levels element
+const levels = document.querySelector('.levels');
+
+// Listen for the scroll event on the window
+window.addEventListener('scroll', () => {
+  // Check if the user has scrolled past the .levels element
+  if (window.scrollY > levels.offsetTop) {
+    // Add the .visible class to the .levels element
+    levels.classList.add('visible');
+  } else {
+    // Remove the .visible class from the .levels element
+    levels.classList.remove('visible');
+  }
+});
+
+        window.onload = function() {
+    var level1Complete = false;
+
+    // Check if level 1 is complete
+    if (localStorage.getItem('level1Complete') === 'true') {
+      level1Complete = true;
+    }
+
+    // Lock/unlock levels based on completion
+    var level2 = document.querySelectorAll('.levels a')[1];
+    var level3 = document.querySelectorAll('.levels a')[2];
+    var level4 = document.querySelectorAll('.levels a')[3];
+    var level5 = document.querySelectorAll('.levels a')[4];
+    var level6 = document.querySelectorAll('.levels a')[5];
+    var level7 = document.querySelectorAll('.levels a')[6];
+    var level8 = document.querySelectorAll('.levels a')[7];
+    var level9 = document.querySelectorAll('.levels a')[8];
+    if (level1Complete) {
+      level2.classList.remove('locked');
+      level2.removeAttribute('onclick');
+      level2.href = 'level2.html';
+    }
+    if (localStorage.getItem('level2Complete') === 'true') {
+      level3.classList.remove('locked');
+      level3.href = 'level3.html';
+    }
+    if (localStorage.getItem('level3Complete') === 'true') {
+      level4.classList.remove('locked');
+      
+    }
+    if (localStorage.getItem('level4Complete') === 'true') {
+      level5.classList.remove('locked');
+      level5.href = 'level5.html';
+    }
+    if (localStorage.getItem('level5Complete') === 'true') {
+      level6.classList.remove('locked');
+      level6.href = 'level6.html';
+    }
+    if (localStorage.getItem('level6Complete') === 'true') {
+      level7.classList.remove('locked');
+      level7.href = 'level7.html';
+    }
+    if (localStorage.getItem('level7Complete') === 'true') {
+      level8.classList.remove('locked');
+      level8.href = 'level8.html';
+    }
+    if (localStorage.getItem('level8Complete') === 'true') {
+      level9.classList.remove('locked');
+      level9.href = 'level9.html';
+    }
+    if (localStorage.getItem('level9Complete') === 'true') {
+      level10.classList.remove('locked');
+      level10.href = 'level10.html';
+    }
+    if (localStorage.getItem('level10Complete') === 'true') {
+      level11.classList.remove('locked');
+      level11.href = 'level11.html';
+    }
+    if (localStorage.getItem('level11Complete') === 'true') {
+      level12.classList.remove('locked');
+      level12.href = 'level12.html';
+    }
+    if (localStorage.getItem('level12Complete') === 'true') {
+      level13.classList.remove('locked');
+      level13.href = 'level13.html';
+    }
+    if (localStorage.getItem('level13Complete') === 'true') {
+      level14.classList.remove('locked');
+      level14.href = 'level14.html';
+    }
+    if (localStorage.getItem('level14Complete') === 'true') {
+      level15.classList.remove('locked');
+      level15.href = 'level5.html';
+    }
+
+    // Set event listeners for level completion
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'level1Complete' && e.newValue === 'true') {
+        level2.classList.remove('locked');
+        level2.href = 'level2.html';
+      }
+      if (e.key === 'level2Complete' && e.newValue === 'true') {
+        level3.classList.remove('locked');
+        level3.href = 'level3.html';
+      }
+      if (e.key === 'level3Complete' && e.newValue === 'true') {
+        level4.classList.remove('locked');
+        
+      }
+      if (e.key === 'level4Complete' && e.newValue === 'true') {
+        level5.classList.remove('locked');
+        level5.href = 'level5.html';
+      }
+      if (e.key === 'level5Complete' && e.newValue === 'true') {
+        level6.classList.remove('locked');
+        level6.href = 'level6.html';
+      }
+      if (e.key === 'level6Complete' && e.newValue === 'true') {
+        level7.classList.remove('locked');
+        level7.href = 'level7.html';
+      }
+      if (e.key === 'level7Complete' && e.newValue === 'true') {
+        level8.classList.remove('locked');
+        level8.href = 'level8.html';
+      }
+      if (e.key === 'level8Complete' && e.newValue === 'true') {
+        level9.classList.remove('locked');
+        level9.href = 'level9.html';
+      }
+      if (e.key === 'level9Complete' && e.newValue === 'true') {
+        level10.classList.remove('locked');
+        level10.href = 'level10.html';
+      }
+      if (e.key === 'level10Complete' && e.newValue === 'true') {
+        level11.classList.remove('locked');
+        level11.href = 'level11.html';
+      }
+      if (e.key === 'level11Complete' && e.newValue === 'true') {
+        level12.classList.remove('locked');
+        level12.href = 'level12.html';
+      }
+      if (e.key === 'level12Complete' && e.newValue === 'true') {
+        level13.classList.remove('locked');
+        level13.href = 'level13.html';
+      }
+      if (e.key === 'level13Complete' && e.newValue === 'true') {
+        level14.classList.remove('locked');
+        level14.href = 'level14.html';
+      }
+      if (e.key === 'level14Complete' && e.newValue === 'true') {
+        level15.classList.remove('locked');
+        level15.href = 'level15.html';
+      }
+    });
+  };
+  export default {
+  mounted() {
+    // add the animation class to the element on mount
+    this.$el.classList.add('levels');
+  },
+};
+// Add fade-in animation when scrolling
+$(window).scroll(function() {
+  $('.levels').each(function() {
+    var elemPos = $(this).offset().top;
+    var elemHeight = $(this).height();
+    var windowHeight = $(window).height();
+    var scrollPos = $(window).scrollTop();
+
+    // Check if element is in view
+    if (elemPos < scrollPos + windowHeight && elemPos + elemHeight > scrollPos) {
+      $(this).addClass('fade-in');
+    } else {
+      $(this).removeClass('fade-in');
+    }
+  });
+});
+
+$(window).scroll(function(event) {
+
+  $(".levels").each(function(i, el) {
+    var el = $(el);
+    if (el.visible(true)) {
+      el.addClass("fade-in");
+    }
+  });
+
+});
+
+    </script>
+</body>
+</html>
