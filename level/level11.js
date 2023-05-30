@@ -97,7 +97,7 @@ document.getElementById("hint-btn").addEventListener("click", function() {
       // Code to execute when "Hint" button is clicked
       swal.fire({
         title: "Hint",
-        text: "Hint.",
+        text: "Apa nama organisasi pemuda yang dibentuk pada masa Orde Lama oleh Soekarno.",
         icon: "info",
         button: "OK"
       });

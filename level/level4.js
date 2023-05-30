@@ -114,7 +114,7 @@ document.getElementById("hint-btn").addEventListener("click", function() {
       // Code to execute when "Hint" button is clicked
       swal.fire({
         title: "Hint",
-        text: "Hint.",
+        text: "Gedung ini merupakan pusat pemerintahan Indonesia pada masa orde baru.",
         icon: "info",
         button: "OK"
       });

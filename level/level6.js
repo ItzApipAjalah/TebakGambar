@@ -1,23 +1,6 @@
 var timeRemaining = 120;
 var timerInterval;
 
-// Add a function to be called when Level 3 is completed
-function completeLevel3() {
-  localStorage.setItem('level3Complete', 'true');
-}
-
-window.onload = function() {
-  // Check if level 3 is complete
-  if (localStorage.getItem('level3Complete') === 'true') {
-    // Unlock Level 4
-    var level4 = document.querySelectorAll('.levels a')[4];
-    level4.classList.remove('locked');
-    
-  }
-  
-  // ...rest of the code...
-}
-
 // Start the timer when the level loads
 window.onload = function() {
   startTimer();
@@ -58,7 +41,7 @@ function startTimer() {
 
 
 // Define the correct answer
-const correctAnswer = "gedung sate";
+const correctAnswer = "gedung dpr";
 
 // Get references to the elements
 const img = document.getElementById("soal-img");
@@ -73,7 +56,7 @@ form.addEventListener("submit", function(event) {
   const guess = input.value.trim().toLowerCase(); // Trim whitespace from the beginning and end of the guess
 
   // Check if the guess is correct
-  if (guess === correctAnswer || guess === correctAnswer.trim()) {    // Show a success message
+  if (guess === correctAnswer || guess === correctAnswer.trim()) {
     // Show a success message
     swal.fire("Benar!", "Kamu Menjawab Dengan Benar.", "success");
 
@@ -86,11 +69,11 @@ form.addEventListener("submit", function(event) {
     // Move on to the next level
     setTimeout(function() {
       window.location.href = "selector.html";
-      localStorage.setItem('level3Complete', 'true');
+      localStorage.setItem('level6Complete', 'true');
     }, 2000);
   } else {
     // Show an error message
-    swal.fire("Salah", "Maaf, Jawaban Kamu Salah.", "error");
+    swal.fire("Salah", "Maaf, Jawaban kamu salah.", "error");
 
     // Play an error sound
     const sound = new Howl({
@@ -114,7 +97,7 @@ document.getElementById("hint-btn").addEventListener("click", function() {
       // Code to execute when "Hint" button is clicked
       swal.fire({
         title: "Hint",
-        text: "yang menjadi simbol kekuasaan Orde Baru di Jakarta dan kini menjadi pusat pembangunan ekonomi dan bisnis..",
+        text: "nama gedung parlemen Indonesia pada masa Orde Lama.",
         icon: "info",
         button: "OK"
       });

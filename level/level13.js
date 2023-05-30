@@ -97,7 +97,7 @@ document.getElementById("hint-btn").addEventListener("click", function() {
       // Code to execute when "Hint" button is clicked
       swal.fire({
         title: "Hint",
-        text: "Hint.",
+        text: "nama museum yang didirikan pada masa Orde Lama di Jakarta untuk mengenang perjuangan kemerdekaan Indonesia.",
         icon: "info",
         button: "OK"
       });

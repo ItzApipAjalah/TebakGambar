@@ -97,7 +97,7 @@ document.getElementById("hint-btn").addEventListener("click", function() {
       // Code to execute when "Hint" button is clicked
       swal.fire({
         title: "Hint",
-        text: "Hint.",
+        text: "Siapa tokoh yang menjadi menteri pertama pada masa Orde Lama.",
         icon: "info",
         button: "OK"
       });

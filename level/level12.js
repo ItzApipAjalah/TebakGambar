@@ -97,7 +97,7 @@ document.getElementById("hint-btn").addEventListener("click", function() {
       // Code to execute when "Hint" button is clicked
       swal.fire({
         title: "Hint",
-        text: "Hint.",
+        text: "Gambar apa yang menjadi lambang kebesaran dan kekuatan pada masa Orde Lama.",
         icon: "info",
         button: "OK"
       });

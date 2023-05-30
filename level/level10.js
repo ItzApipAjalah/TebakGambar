@@ -97,7 +97,7 @@ document.getElementById("hint-btn").addEventListener("click", function() {
       // Code to execute when "Hint" button is clicked
       swal.fire({
         title: "Hint",
-        text: "Hint.",
+        text: "nama logo yang digunakan sebagai simbol partai politik pada masa Orde Lama?.",
         icon: "info",
         button: "OK"
       });

@@ -47,7 +47,7 @@ function startTimer() {
       }).then(function(isConfirmed) {
         if (isConfirmed) {
           // Redirect to next level page
-          window.location.href = "level2.html";
+          window.location.href = "selector.html";
         }
       });
     }
@@ -114,7 +114,7 @@ document.getElementById("hint-btn").addEventListener("click", function() {
       // Code to execute when "Hint" button is clicked
       swal.fire({
         title: "Hint",
-        text: "Hint.",
+        text: "yang menjadi simbol kebesaran Indonesia dan dibangun pada era Orde Baru.",
         icon: "info",
         button: "OK"
       });

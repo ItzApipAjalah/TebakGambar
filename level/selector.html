@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pilih Level</title>
+    <link href="https://fonts.cdnfonts.com/css/magical-mystery" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/easy-listening" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/seven-deadly-sins" rel="stylesheet">
+          <script src="https://unpkg.com/sweetalert2@11.7.5/dist/sweetalert2.all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="https://cdn.rawgit.com/adriancooney/console.image/c9e6d4fd/console.image.min.js"></script>
+                
+    <style> 
+    body {
+      background-color: #0e1111;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    
+    h1 {
+      font-family: 'Easy listening', sans-serif;                                             
+      font-size: 50px;                                   
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      color: #EDEADE;
+    }
+    
+    .levels {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    a {
+  display: block;
+  font-family: 'Easy listening', sans-serif;                                            
+  margin: 20px auto;
+  padding: 20px;
+  padding-right: 85%;
+  background-color: #414A4C;
+  color: #f8f8f8;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #F9F6EE;
+  transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 480px) {
+  a {
+    padding-right: 0;
+    font-size: 18px;
+    margin: 15px auto;
+    padding: 20px;
+    padding-right: 40%;
+  }
+}
+
+    
+    a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px #F9F6EE;
+    }
+
+    /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+
+@media screen and (max-width: 480px) {
+  ::-webkit-scrollbar {
+  width: 5px;
+}
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #F5F5DC; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 8px 16px #F9F6EE; 
+}
+    
+    a.locked {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    
+    .lock-icon {
+      display: inline-block;
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: #ff9800;
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      line-height: 20px;
+      border-radius: 50%;
+    }
+    
+    .lock-icon:before {
+      content: "\f023";
+      font-family: FontAwesome;
+      font-weight: normal;
+      font-style: normal;
+      text-decoration: inherit;
+      margin-left: -2px;
+    }
+
+    .levels {
+      animation-duration: 2s;
+  animation-name: kanan;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.choose {
+  opacity: 0;
+  animation: fade-inn 2.5s forwards;
+  animation-delay: 500ms;
+}
+
+@keyframes fade-inn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kanan {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+@keyframes kiri {
+  from {
+    margin-left: -100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200vh;
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation .2s infinite;
+  opacity: .9;
+  visibility: visible;
+  z-index: -10000;
+}
+
+@keyframes bg-animation {
+    0% { transform: translate(0,0) }
+    10% { transform: translate(-5%,-5%) }
+    20% { transform: translate(-10%,5%) }
+    30% { transform: translate(5%,-10%) }
+    40% { transform: translate(-5%,15%) }
+    50% { transform: translate(-10%,5%) }
+    60% { transform: translate(15%,0) }
+    70% { transform: translate(0,10%) }
+    80% { transform: translate(-15%,0) }
+    90% { transform: translate(10%,5%) }
+    100% { transform: translate(5%,0) }
+}
+
+.responsive-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #414A4C;
+  color: #f8f8f8;
+font-family: 'Easy listening', sans-serif;    
+box-shadow: 0 4px 8px #F9F6EE;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+@media screen and (max-width: 480px) {
+  .responsive-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+@media screen and (max-width: 585px) {
+  .responsive-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+    </style>
+    
+  </head>
+
+  
+  <body>
+    <h1 class="choose">Pilih Level</h1>
+    <button onclick="window.location='../index.html';" class="responsive-button">Kembali</button>
+    <div class="bg"></div>
+    <div class="levels">
+      <a href="level1.html">Level 1</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 1 first!')">Level 2</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 2 first!')">Level 3</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 3 first!')">Level 4</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 4 first!')">Level 5</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 5 first!')">Level 6</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 6 first!')">Level 7</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 7 first!')">Level 8</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 8 first!')">Level 9</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 9 first!')">Level 10</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 10 first!')">Level 11</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 11 first!')">Level 12</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 12 first!')">Level 13</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 13 first!')">Level 14</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 14 first!')">Level 15</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 15 first!')">Level 16</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 16 first!')">Level 17</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 17 first!')">Level 18</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 18 first!')">Level 19</a>
+      <a href="#" class="locked" onclick="alert('Please complete Level 19 first!')">Level 20</a>
+      <a id="clear" class="locked hide" onclick="alert('Kerjakan semua soal dulu')">BERMAIN DARI AWAL</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://unpkg.com/sweetalert2@11.7.5/dist/sweetalert2.all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script>
+      // Get the .levels element
+const levels = document.querySelector('.levels');
+
+// Listen for the scroll event on the window
+window.addEventListener('scroll', () => {
+  // Check if the user has scrolled past the .levels element
+  if (window.scrollY > levels.offsetTop) {
+    // Add the .visible class to the .levels element
+    levels.classList.add('visible');
+  } else {
+    // Remove the .visible class from the .levels element
+    levels.classList.remove('visible');
+  }
+});
+
+        window.onload = function() {
+    var level1Complete = false;
+    
+    // Check if level 1 is complete
+    if (localStorage.getItem('level1Complete') === 'true') {
+      level1Complete = true;
+    }
+    
+    // Lock/unlock levels based on completion
+    var level2 = document.querySelectorAll('.levels a')[1];
+    var level3 = document.querySelectorAll('.levels a')[2];
+    var level4 = document.querySelectorAll('.levels a')[3];
+    var level5 = document.querySelectorAll('.levels a')[4];
+    var level6 = document.querySelectorAll('.levels a')[5];
+    var level7 = document.querySelectorAll('.levels a')[6];
+    var level8 = document.querySelectorAll('.levels a')[7];
+    var level9 = document.querySelectorAll('.levels a')[8];
+    var level10 = document.querySelectorAll('.levels a')[9];
+    var level11 = document.querySelectorAll('.levels a')[10];
+    var level12 = document.querySelectorAll('.levels a')[11];
+    var level13 = document.querySelectorAll('.levels a')[12];
+    var level14 = document.querySelectorAll('.levels a')[13];
+    var level15 = document.querySelectorAll('.levels a')[14];
+    var level16 = document.querySelectorAll('.levels a')[15];
+    var level17 = document.querySelectorAll('.levels a')[16];
+    var level18 = document.querySelectorAll('.levels a')[17];
+    var level19 = document.querySelectorAll('.levels a')[18];
+    var level20 = document.querySelectorAll('.levels a')[19];
+    var reset = document.querySelectorAll('.levels a')[20];
+    if (level1Complete) {
+      level2.classList.remove('locked');
+      level2.removeAttribute('onclick');
+      level2.href = 'level2.html';
+    }
+    if (localStorage.getItem('level2Complete') === 'true') {
+      level3.classList.remove('locked');
+      level3.removeAttribute('onclick');
+      level3.href = 'level3.html';
+    }
+    if (localStorage.getItem('level3Complete') === 'true') {
+      level4.classList.remove('locked');
+      level4.removeAttribute('onclick');
+      level4.href = 'level4.html';
+    }
+    if (localStorage.getItem('level4Complete') === 'true') {
+      level5.classList.remove('locked');
+      level5.removeAttribute('onclick');
+      level5.href = 'level5.html';
+    }
+    if (localStorage.getItem('level5Complete') === 'true') {
+      level6.classList.remove('locked');
+      level6.removeAttribute('onclick');
+      level6.href = 'level6.html';
+    }
+    if (localStorage.getItem('level6Complete') === 'true') {
+      level7.classList.remove('locked');
+      level7.removeAttribute('onclick');
+      level7.href = 'level7.html';
+    }
+    if (localStorage.getItem('level7Complete') === 'true') {
+      level8.classList.remove('locked');
+      level8.removeAttribute('onclick');
+      level8.href = 'level8.html';
+    }
+    if (localStorage.getItem('level8Complete') === 'true') {
+      level9.classList.remove('locked');
+      level9.removeAttribute('onclick');
+      level9.href = 'level9.html';
+    }
+    if (localStorage.getItem('level9Complete') === 'true') {
+      level10.classList.remove('locked');
+      level10.removeAttribute('onclick');
+      level10.href = 'level10.html';
+    }
+    if (localStorage.getItem('level10Complete') === 'true') {
+      level11.classList.remove('locked');
+      level11.removeAttribute('onclick');
+      level11.href = 'level11.html';
+    }
+    if (localStorage.getItem('level11Complete') === 'true') {
+      level12.classList.remove('locked');
+      level12.removeAttribute('onclick');
+      level12.href = 'level12.html';
+    }
+    if (localStorage.getItem('level12Complete') === 'true') {
+      level13.classList.remove('locked');
+      level13.removeAttribute('onclick');
+      level13.href = 'level13.html';
+    }
+    if (localStorage.getItem('level13Complete') === 'true') {
+      level14.classList.remove('locked');
+      level14.removeAttribute('onclick');
+      level14.href = 'level14.html';
+    }
+    if (localStorage.getItem('level14Complete') === 'true') {
+      level15.classList.remove('locked');
+      level15.removeAttribute('onclick');
+      level15.href = 'level15.html';
+    }
+    if (localStorage.getItem('level15Complete') === 'true') {
+      level16.classList.remove('locked');
+      level16.removeAttribute('onclick');
+      level16.href = 'level16.html';
+    }
+    if (localStorage.getItem('level16Complete') === 'true') {
+      level17.classList.remove('locked');
+      level17.removeAttribute('onclick');
+      level17.href = 'level17.html';
+    }
+    if (localStorage.getItem('level17Complete') === 'true') {
+      level18.classList.remove('locked');
+      level18.removeAttribute('onclick');
+      level18.href = 'level18.html';
+    }
+    if (localStorage.getItem('level18Complete') === 'true') {
+      level19.classList.remove('locked');
+      level19.removeAttribute('onclick');
+      level19.href = 'level19.html';
+    }
+    if (localStorage.getItem('level19Complete') === 'true') {
+      level20.classList.remove('locked');
+      level20.removeAttribute('onclick');
+      level20.href = 'level20.html';
+    }
+    if (localStorage.getItem('level20Complete') === 'true') {
+      reset.classList.remove('locked');
+      reset.removeAttribute('onclick');
+      reset.removeAttribute('class');
+    }
+    
+    // Set event listeners for level completion
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'level1Complete' && e.newValue === 'true') {
+        level2.classList.remove('locked');
+        level2.removeAttribute('onclick');
+        level2.href = 'level2.html';
+      }
+      if (e.key === 'level2Complete' && e.newValue === 'true') {
+        level3.classList.remove('locked');
+        level3.removeAttribute('onclick');
+        level3.href = 'level3.html';
+      }
+      if (e.key === 'level3Complete' && e.newValue === 'true') {
+        level4.classList.remove('locked');
+        level4.removeAttribute('onclick');
+        level4.href = 'level4.html';
+      }
+      if (e.key === 'level4Complete' && e.newValue === 'true') {
+        level5.classList.remove('locked');
+        level5.removeAttribute('onclick');
+        level5.href = 'level5.html';
+      }
+      if (e.key === 'level5Complete' && e.newValue === 'true') {
+        level6.classList.remove('locked');
+        level6.removeAttribute('onclick');
+        level6.href = 'level6.html';
+      }
+      if (e.key === 'level6Complete' && e.newValue === 'true') {
+        level7.classList.remove('locked');
+        level7.removeAttribute('onclick');
+        level7.href = 'level7.html';
+      }
+      if (e.key === 'level7Complete' && e.newValue === 'true') {
+        level8.classList.remove('locked');
+        level8.removeAttribute('onclick');
+        level8.href = 'level8.html';
+      }
+      if (e.key === 'level8Complete' && e.newValue === 'true') {
+        level9.classList.remove('locked');
+        level9.href = 'level9.html';
+      }
+      if (e.key === 'level9Complete' && e.newValue === 'true') {
+        level10.classList.remove('locked');
+        level10.href = 'level10.html';
+      }
+      if (e.key === 'level10Complete' && e.newValue === 'true') {
+        level11.classList.remove('locked');
+        level11.href = 'level11.html';
+      }
+      if (e.key === 'level11Complete' && e.newValue === 'true') {
+        level12.classList.remove('locked');
+        level12.href = 'level12.html';
+      }
+      if (e.key === 'level12Complete' && e.newValue === 'true') {
+        level13.classList.remove('locked');
+        level13.href = 'level13.html';
+      }
+      if (e.key === 'level13Complete' && e.newValue === 'true') {
+        level14.classList.remove('locked');
+        level14.href = 'level14.html';
+      }
+      if (e.key === 'level14Complete' && e.newValue === 'true') {
+        level15.classList.remove('locked');
+        level15.href = 'level15.html';
+      }
+    });
+  };
+
+document.getElementById("clear").addEventListener("click", function() {
+  swal.fire({
+    title: "PERINGATAN",
+    text: "Jika kamu menakan OK semua level akan di reset dan bermain dari awal!!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Ok",
+    cancelButtonText: "Batal"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Code to execute when "Hint" button is clicked
+      localStorage.removeItem('level1Complete');
+      localStorage.removeItem('level2Complete');
+      localStorage.removeItem('level3Complete');
+      localStorage.removeItem('level4Complete');
+      localStorage.removeItem('level5Complete');
+      localStorage.removeItem('level6Complete');
+      localStorage.removeItem('level7Complete');
+      localStorage.removeItem('level8Complete');
+      localStorage.removeItem('level9Complete');
+      localStorage.removeItem('level10Complete');
+      localStorage.removeItem('level11Complete');
+      localStorage.removeItem('level12Complete');
+      localStorage.removeItem('level13Complete');
+      localStorage.removeItem('level14Complete');
+      localStorage.removeItem('level15Complete');
+      localStorage.removeItem('level16Complete');
+      localStorage.removeItem('level17Complete');
+      localStorage.removeItem('level18Complete');
+      localStorage.removeItem('level19Complete');
+      localStorage.removeItem('level20Complete');
+      location.reload();
+    } else if (result.dismiss === swal.DismissReason.cancel) {
+      // Code to execute when "Menu" button is clicked
+      window.location.href = "selector.html"; // Change the URL to the desired page
+    }
+  });
+});
+
+      console.log('Halaman berhasil di muat, silahkan bermain!!');
+    console.meme("don't be a cheater", "stupid people.", "Awkward Penguin", 400, 300);
+    </script>
+      <script>
+        // Add a new history entry when the page loads
+        window.history.pushState(null, 'index.html', location.href);
+    
+        // Detect when the user tries to go back
+        window.onpopstate = function(event) {
+          // Add a new history entry and prevent the user from going back
+          window.history.pushState(null, 'index.html', location.href);
+        };
+      </script>
+  </body>
+</html>

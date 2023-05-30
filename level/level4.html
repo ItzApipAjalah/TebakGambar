@@ -237,6 +237,7 @@ button[type="submit"]:hover {
   <script src="https://unpkg.com/sweetalert2@11.7.5/dist/sweetalert2.all.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
   <script src="level4.js"></script>
+      <script src="https://cdn.rawgit.com/adriancooney/console.image/c9e6d4fd/console.image.min.js"></script>
     <script>
     // Add a new history entry when the page loads
     window.history.pushState(null, 'selector.html', location.href);
@@ -247,5 +248,18 @@ button[type="submit"]:hover {
       window.history.pushState(null, 'selector.html', location.href);
     };
   </script>
+      <script>
+            console.log('Halaman berhasil di muat, silahkan bermain!!');
+    console.meme("don't be a cheater", "stupid people.", "Awkward Penguin", 400, 300);
+        if (!localStorage.getItem('level3Complete')) {
+          // Permission not granted, show prompt
+          if (confirm('Selesaikan Level Sebelum nya terlebih dahulu :D')) {
+            window.location.href = 'selector.html';
+          } else {
+          // User denies permission, redirect to a different page
+          window.location.href = 'selector.html';
+        }
+      }
+      </script>
 </body>
 </html>

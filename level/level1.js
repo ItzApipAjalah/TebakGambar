@@ -47,7 +47,7 @@ function startTimer() {
       }).then(function(isConfirmed) {
         if (isConfirmed) {
           // Redirect to next level page
-          window.location.href = "level2.html";
+          window.location.href = "selector.html";
         }
       });
     }
@@ -114,7 +114,7 @@ document.getElementById("hint-btn").addEventListener("click", function() {
       // Code to execute when "Hint" button is clicked
       swal.fire({
         title: "Hint",
-        text: "Hint.",
+        text: "yang menjadi simbol kemenangan TNI pada Operasi Seroja pada masa Orde Baru di Timor Timur.",
         icon: "info",
         button: "OK"
       });
@@ -124,3 +124,5 @@ document.getElementById("hint-btn").addEventListener("click", function() {
     }
   });
 });
+      console.log('Halaman berhasil di muat, silahkan bermain!!');
+    console.meme("don't be a cheater", "stupid people.", "Awkward Penguin", 400, 300);

@@ -16,6 +16,7 @@
 		<link href="https://fonts.cdnfonts.com/css/magical-mystery" rel="stylesheet">
 		<link href="https://fonts.cdnfonts.com/css/easy-listening" rel="stylesheet">
 		<link href="https://fonts.cdnfonts.com/css/seven-deadly-sins" rel="stylesheet">
+		    <script src="https://cdn.rawgit.com/adriancooney/console.image/c9e6d4fd/console.image.min.js"></script>
 		<style>
 			/* Style the link to look like a button */
 			/* Custom styles for SweetAlert2 */
@@ -181,7 +182,7 @@ sound.play();
     if (result.isConfirmed) {
       // Code to execute when "Hint" button is clicked
       swal.fire({
-        text: "Maaf Design yang tidak sebarapa, karena game ini hanya di buat oleh 1 orang, saya mengutamakan fungsi :).",
+        text: "Maaf Design yang tidak sebarapa, karena game ini hanya di buat oleh 1 orang",
         icon: "success",
         button: "OK"
       });
@@ -216,7 +217,18 @@ sound.play();
 	<script src="js/main.js"></script>
 	<script src="js/status.js"></script>
 	
-
+	<script>
+	      console.log('Halaman berhasil di muat, silahkan bermain!!');
+    console.meme("don't be a cheater", "stupid people.", "Awkward Penguin", 400, 300);
+        // Add a new history entry when the page loads
+        window.history.pushState(null, 'index.html', location.href);
+    
+        // Detect when the user tries to go back
+        window.onpopstate = function(event) {
+          // Add a new history entry and prevent the user from going back
+          window.history.pushState(null, 'index.html', location.href);
+        };
+      </script>
 	</body>
 
 </html>
